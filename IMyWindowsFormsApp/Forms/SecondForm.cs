@@ -1,4 +1,5 @@
 ﻿using IMyWindowsFormsApp.Data.Models;
+using IMyWindowsFormsApp.Forms;
 using IMyWindowsFormsApp.Mappers;
 using IMyWindowsFormsApp.Models.ViewModels;
 using IMyWindowsFormsApp.Services;
@@ -15,11 +16,13 @@ namespace IMyWindowsFormsApp
         public Teacher TeacherInfo { get; set; }
 
         private readonly IStudentService _studentService;
+        private readonly IAddressService _addressService;
 
-        public SecondForm(IStudentService studentService)
+        public SecondForm(IStudentService studentService, IAddressService addressService)
         {
             InitializeComponent();
             _studentService = studentService;
+            _addressService = addressService;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -64,6 +67,18 @@ namespace IMyWindowsFormsApp
         private void grdStudents_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ShowRow();
+        }        
+        private void grdStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                Guid id = Guid.Parse(((DataGridView)sender).SelectedRows[0].Cells["Id"].Value.ToString());
+                AddressForm frm = new AddressForm(_addressService);
+                frm.StudentInfo = _studentService.Get(id);
+                frm.Location = new System.Drawing.Point(this.Width + 100, 100);
+                frm.Show();
+                frm.Activate();
+            }
         }
         private void RefreshStudents()
         {
@@ -88,5 +103,6 @@ namespace IMyWindowsFormsApp
                 txtAge.Text = grdStudents.SelectedRows[0].Cells["stAge"].Value.ToString();
             }
         }
+
     }
 }

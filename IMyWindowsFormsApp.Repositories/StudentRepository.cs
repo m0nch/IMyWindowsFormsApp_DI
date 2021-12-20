@@ -26,6 +26,11 @@ namespace IMyWindowsFormsApp.Repositories
             return _dbContext.Students.FirstOrDefault(x => x.Id == id);
         }
 
+        public Address GetAddress(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Student> GetAll()
         {
             return _dbContext.Students;

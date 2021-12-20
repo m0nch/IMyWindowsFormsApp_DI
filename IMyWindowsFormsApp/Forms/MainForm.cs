@@ -13,13 +13,18 @@ namespace IMyWindowsFormsApp
     public partial class MainForm : Form
     {
         private readonly ITeacherService _teacherService;
-        private readonly IStudentService _studentService;
 
-        public MainForm(ITeacherService teacherService, IStudentService studentService)
+        private readonly IStudentService _studentService;
+        private readonly IAddressService _addressService;
+
+        public MainForm(ITeacherService teacherService, IStudentService studentService, IAddressService addressService)
         {
             InitializeComponent();
+
             _teacherService = teacherService;
             _studentService = studentService;
+            _addressService = addressService;
+
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -59,6 +64,18 @@ namespace IMyWindowsFormsApp
         {
             ShowRow();
         }
+        private void grdTeachers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                Guid id = Guid.Parse(((DataGridView)sender).SelectedRows[0].Cells["Id"].Value.ToString());
+                SecondForm frm = new SecondForm(_studentService, _addressService);
+                frm.TeacherInfo = _teacherService.Get(id);
+                frm.Location = new System.Drawing.Point(this.Width + 100, 100);
+                frm.Show();
+                frm.Activate();
+            }
+        }
         private void RefreshTeachers()
         {
             grdTeachers.DataSource = null;
@@ -67,6 +84,7 @@ namespace IMyWindowsFormsApp
             {
                 grdTeachers.Rows[0].Selected = true;
             }
+            ShowRow();
         }
         private void ShowRow()
         {
@@ -78,18 +96,6 @@ namespace IMyWindowsFormsApp
                 txtLastName.Text = names.Last();
                 txtFirstName.Text = names.First();
                 txtAge.Text = grdTeachers.SelectedRows[0].Cells["Age"].Value.ToString();
-            }
-        }
-        private void grdTeachers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                Guid id = Guid.Parse(((DataGridView)sender).SelectedRows[0].Cells["Id"].Value.ToString());
-                SecondForm frm = new SecondForm(_studentService);
-                frm.TeacherInfo = _teacherService.Get(id);
-                frm.Location = new System.Drawing.Point(this.Width + 100, 100);
-                frm.Show();
-                frm.Activate();
             }
         }
     }

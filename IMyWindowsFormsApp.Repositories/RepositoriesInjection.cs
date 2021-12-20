@@ -13,6 +13,7 @@ namespace IMyWindowsFormsApp.Repositories
         {
             service.AddScoped<IStudentRepository, StudentRepository>();
             service.AddScoped<ITeacherRepository, TeacherRepository>();
+            service.AddScoped<IAddressRepository, AddressRepository>();
             return service;
         }
     }

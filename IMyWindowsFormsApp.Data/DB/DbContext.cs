@@ -11,11 +11,13 @@ namespace IMyWindowsFormsApp.Data.DB
     {
         public List<Teacher> Teachers { get; set; }
         public List<Student> Students { get; set; }
+        public List<Address> Addresses { get; set; }
 
         public DbContext()
         {
             Teachers = new List<Teacher>();
             Students = new List<Student>();
+            Addresses = new List<Address>();
         }
     }
 }

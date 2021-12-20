@@ -13,6 +13,7 @@ namespace IMyWindowsFormsApp.Services
         {
             service.AddScoped<IStudentService, StudentService>();
             service.AddScoped<ITeacherService, TeacherService>();
+            service.AddScoped<IAddressService, AddressService>();
             return service;
         }
     }

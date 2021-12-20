@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMyWindowsFormsApp.Data.Models
 {
-    class Address
+    public class Address
     {
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -15,5 +15,6 @@ namespace IMyWindowsFormsApp.Data.Models
         public string ZipCode { get; set; }
         public string Country { get; set; }
         public string PhoneNumber { get; set; }
+        public Guid StudentId { get; set; }
     }
 }

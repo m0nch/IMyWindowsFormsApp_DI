@@ -11,5 +11,6 @@ namespace IMyWindowsFormsApp.Data.DB
     {
         List<Teacher> Teachers { get; set; }
         List<Student> Students { get; set; }
+        List<Address> Addresses { get; set; }
     }
 }

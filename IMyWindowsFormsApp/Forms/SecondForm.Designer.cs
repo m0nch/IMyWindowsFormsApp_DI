@@ -41,14 +41,14 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.grdStudents = new System.Windows.Forms.DataGridView();
-            this.lblGuid = new System.Windows.Forms.Label();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lblTGuid = new System.Windows.Forms.Label();
-            this.lblTId = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblGuid = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblTGuid = new System.Windows.Forms.Label();
+            this.lblTId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -187,9 +187,43 @@
             this.grdStudents.ReadOnly = true;
             this.grdStudents.RowHeadersVisible = false;
             this.grdStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdStudents.Size = new System.Drawing.Size(613, 273);
+            this.grdStudents.Size = new System.Drawing.Size(614, 272);
             this.grdStudents.TabIndex = 22;
             this.grdStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdStudents_CellClick);
+            this.grdStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdStudents_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.FillWeight = 10F;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // stFullName
+            // 
+            this.stFullName.DataPropertyName = "FullName";
+            this.stFullName.FillWeight = 5F;
+            this.stFullName.HeaderText = "Name";
+            this.stFullName.Name = "stFullName";
+            this.stFullName.ReadOnly = true;
+            // 
+            // stAge
+            // 
+            this.stAge.DataPropertyName = "Age";
+            this.stAge.FillWeight = 2F;
+            this.stAge.HeaderText = "Age";
+            this.stAge.Name = "stAge";
+            this.stAge.ReadOnly = true;
+            // 
+            // TeacherId
+            // 
+            this.TeacherId.DataPropertyName = "TeacherId";
+            this.TeacherId.FillWeight = 1F;
+            this.TeacherId.HeaderText = "TeacherId";
+            this.TeacherId.Name = "TeacherId";
+            this.TeacherId.ReadOnly = true;
+            this.TeacherId.Visible = false;
             // 
             // lblGuid
             // 
@@ -228,8 +262,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.grdStudents);
-            this.splitContainer1.Size = new System.Drawing.Size(613, 553);
-            this.splitContainer1.SplitterDistance = 276;
+            this.splitContainer1.Size = new System.Drawing.Size(614, 551);
+            this.splitContainer1.SplitterDistance = 275;
             this.splitContainer1.TabIndex = 24;
             // 
             // lblTGuid
@@ -252,44 +286,11 @@
             this.lblTId.TabIndex = 24;
             this.lblTId.Text = "Teacher Id";
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.FillWeight = 10F;
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // stFullName
-            // 
-            this.stFullName.DataPropertyName = "FullName";
-            this.stFullName.FillWeight = 5F;
-            this.stFullName.HeaderText = "Name";
-            this.stFullName.Name = "stFullName";
-            this.stFullName.ReadOnly = true;
-            // 
-            // stAge
-            // 
-            this.stAge.DataPropertyName = "Age";
-            this.stAge.FillWeight = 2F;
-            this.stAge.HeaderText = "Age";
-            this.stAge.Name = "stAge";
-            this.stAge.ReadOnly = true;
-            // 
-            // TeacherId
-            // 
-            this.TeacherId.DataPropertyName = "TeacherId";
-            this.TeacherId.FillWeight = 1F;
-            this.TeacherId.HeaderText = "TeacherId";
-            this.TeacherId.Name = "TeacherId";
-            this.TeacherId.ReadOnly = true;
-            this.TeacherId.Visible = false;
-            // 
             // SecondForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 553);
+            this.ClientSize = new System.Drawing.Size(614, 551);
             this.Controls.Add(this.splitContainer1);
             this.Name = "SecondForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

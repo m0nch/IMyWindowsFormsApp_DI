@@ -12,6 +12,7 @@ namespace IMyWindowsFormsApp.Repositories
         void Add(Student model);
         void Remove(Student model);
         Student Get(Guid id);
+        Address GetAddress(Guid id);
         void Update(Student model, int index);
         List<Student> GetAll();
         List<Student> GetAllByTeacher(Guid id);
